@@ -9,5 +9,58 @@
 <script type="text/javascript" src="vendor/ember-canary/index.js"></script>
 
 <script type="text/javascript" src="lib/globals/main.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/x-handlebars" data-template-name="components/x-errors">
+  {{#if errors}}
+    <ul>
+      {{#each errors}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="index">
+  <h1>Adequate Validations Playground</h1>
+
+  <form {{action 'validate' on='submit'}}>
+    <label>firstName</label>
+    {{input value=firstName focus-out="validateFirstName"}}
+    {{x-errors errors=errors.firstName}}
+    <br>
+    <label>lastName</label>
+    {{input value=lastName}}
+    {{x-errors errors=errors.lastName}}
+    <br>
+    <label>age</label>
+    {{input value=age}}
+    {{x-errors errors=errors.age}}
+    <br>
+    <label>favoriteTool</label>
+    {{input value=favoriteTool}}
+    {{x-errors errors=errors.favoriteTool}}
+    <br>
+    <label>email</label>
+    {{input value=email}}
+    {{x-errors errors=errors.email}}
+    <br>
+    <label>username</label>
+    {{input value=username}}
+    {{x-errors errors=errors.username}}
+    <br>
+    <label>password</label>
+    {{input value=password type="password"}}
+    {{x-errors errors=errors.password type="password"}}
+    <br>
+    <label>passwordConfirmation</label>
+    {{input value=passwordConfirmation type="password"}}
+    {{x-errors errors=errors.passwordConfirmation type="password"}}
+    <hr>
+
+    <button style="font-size: 24px;">VALIDATE!</button>
+  </form>
+</script>
 </body>
 </html>
