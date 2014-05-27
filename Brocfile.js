@@ -2,6 +2,7 @@ var mergeTrees = require('broccoli-merge-trees');
 var pickFiles = require('broccoli-static-compiler');
 var moduleFilter = require('broccoli-dist-es6-module');
 var esNext = require('broccoli-esnext');
+var es3SafeRecast = require('broccoli-es3-safe-recast');
 
 var env  = process.env.BROCCOLI_ENV || 'development';
 
@@ -15,6 +16,8 @@ tree = moduleFilter(tree, {
     'ember': 'Ember'
   }
 });
+
+tree = es3SafeRecast(tree);
 
 if (env === 'development') {
   var vendor = pickFiles('bower_components', {
