@@ -14,3 +14,15 @@ App.IndexController = Ember.Controller.extend(Ember.AdequateValidations.Mixin, {
     }
   }
 });
+
+App.LengthValidator = Ember.AdequateValidations.Validators.Base.extend({
+  call: function() {
+    return Ember.RSVP.reject('is not long enough');
+  }
+});
+
+App.NumericalityValidator = Ember.AdequateValidations.Validators.Base.extend({
+  call: function() {
+    return Ember.RSVP.reject('is not a number');
+  }
+});
