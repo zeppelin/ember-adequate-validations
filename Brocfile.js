@@ -6,9 +6,11 @@ var es3SafeRecast = require('broccoli-es3-safe-recast');
 
 var env  = process.env.BROCCOLI_ENV || 'development';
 
-var tree = esNext('lib');
+var tree, vendor, lib;
 
-tree = moduleFilter(tree, {
+lib = 'lib';
+lib = esNext(lib);
+lib = moduleFilter(lib, {
   global: 'Ember.AdequateValidations',
   packageName: 'ember-adequate-validations',
   main: 'main',
@@ -16,16 +18,18 @@ tree = moduleFilter(tree, {
     'ember': 'Ember'
   }
 });
+lib = es3SafeRecast(lib);
 
-tree = es3SafeRecast(tree);
 
-if (env === 'development') {
-  var vendor = pickFiles('bower_components', {
+if (env !== 'development') {
+  tree = lib;
+} else {
+  vendor = pickFiles('bower_components', {
     srcDir: '/',
     destDir: 'vendor'
   });
 
-  var lib = pickFiles(tree, {
+  lib = pickFiles(lib, {
     srcDir: '/',
     destDir: 'lib'
   });
