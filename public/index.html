@@ -31,31 +31,31 @@
     {{x-errors errors=errors.firstName}}
     <br>
     <label>lastName</label>
-    {{input value=lastName}}
+    {{input value=lastName focus-out="validateLastName"}}
     {{x-errors errors=errors.lastName}}
     <br>
     <label>age</label>
-    {{input value=age}}
+    {{input value=age focus-out="validateAge"}}
     {{x-errors errors=errors.age}}
     <br>
     <label>favoriteTool</label>
-    {{input value=favoriteTool}}
+    {{input value=favoriteTool focus-out="validateFavoriteTool"}}
     {{x-errors errors=errors.favoriteTool}}
     <br>
     <label>email</label>
-    {{input value=email}}
+    {{input value=email focus-out="validateEmail"}}
     {{x-errors errors=errors.email}}
     <br>
     <label>username</label>
-    {{input value=username}}
+    {{input value=username focus-out="validateUsername"}}
     {{x-errors errors=errors.username}}
     <br>
     <label>password</label>
-    {{input value=password type="password"}}
+    {{input value=password type="password" focus-out="validatePassword"}}
     {{x-errors errors=errors.password type="password"}}
     <br>
     <label>passwordConfirmation</label>
-    {{input value=passwordConfirmation type="password"}}
+    {{input value=passwordConfirmation type="password" focus-out="validatePasswordConfirmation"}}
     {{x-errors errors=errors.passwordConfirmation type="password"}}
     <hr>
 

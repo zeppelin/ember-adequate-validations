@@ -11,6 +11,11 @@ App.IndexController = Ember.Controller.extend(Ember.AdequateValidations.Mixin, {
     },
     age: {
       numericality: true
-    }
+    },
+    favoriteTool: {},
+    email: {},
+    username: {},
+    password: {},
+    passwordConfirmation: {}
   }
 });
