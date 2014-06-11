@@ -4,7 +4,7 @@ var moduleFilter = require('broccoli-dist-es6-module');
 var esNext = require('broccoli-esnext');
 var es3SafeRecast = require('broccoli-es3-safe-recast');
 
-var env  = process.env.BROCCOLI_ENV || 'development';
+var env = process.env.BROCCOLI_ENV || 'development';
 
 var tree, vendor, lib;
 
