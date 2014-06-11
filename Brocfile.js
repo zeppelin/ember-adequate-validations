@@ -21,9 +21,7 @@ lib = moduleFilter(lib, {
 lib = es3SafeRecast(lib);
 
 
-if (env !== 'development') {
-  tree = lib;
-} else {
+if (env === 'development') {
   vendor = pickFiles('bower_components', {
     srcDir: '/',
     destDir: 'vendor'
@@ -35,6 +33,8 @@ if (env !== 'development') {
   });
 
   tree = mergeTrees(['public', vendor, lib]);
+} else {
+  tree = lib;
 }
 
 module.exports = tree;
