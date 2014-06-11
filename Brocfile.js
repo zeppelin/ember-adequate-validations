@@ -44,7 +44,7 @@ switch(env) {
     tree = mergeTrees(['public', vendor, lib]);
     break;
   case 'test':
-    tree = mergeTrees(['public', vendor, lib, tests]);
+    tree = mergeTrees(['tests', vendor, lib, tests]);
     break;
   default:
     tree = lib;
